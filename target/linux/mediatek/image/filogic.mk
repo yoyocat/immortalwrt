@@ -969,6 +969,8 @@ define Device/philips_hy3000
   KERNEL_INITRAMFS := kernel-bin | lzma | \
         fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb with-initrd | pad-to 64k
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  ARTIFACTS := emmc-gpt.bin
+  ARTIFACT/emmc-gpt.bin := mt798x-gpt emmc
 endef
 TARGET_DEVICES += philips_hy3000
 
